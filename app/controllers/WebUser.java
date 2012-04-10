@@ -2,16 +2,16 @@ package controllers;
 
 import models.User;
 import play.data.Form;
-import play.mvc.*;
-import views.html.index;
+import play.mvc.Controller;
+import play.mvc.Result;
 
-public class Application extends Controller {
+public class WebUser extends Controller {
 
     static Form<User> userForm = form(User.class);
 
     public static Result index() {
         //return ok(index.render("Your new application is ready."));
-        return redirect(routes.Application.users());
+        return redirect(routes.WebUser.users());
     }
     public static Result users() {
         return ok(
@@ -27,13 +27,13 @@ public class Application extends Controller {
             );
         } else {
             User.create(filledForm.get());
-            return redirect(routes.Application.users());
+            return redirect(routes.WebUser.users());
         }
     }
 
     public static Result deleteUser(Long id) {
         User.delete(id);
-        return redirect(routes.Application.users());
+        return redirect(routes.WebUser.users());
     }
   
 }

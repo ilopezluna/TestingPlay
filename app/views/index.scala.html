@@ -11,7 +11,7 @@
     <li>
         @user.firstName
 
-        @form(routes.Application.deleteUser(user.id)) {
+        @form(routes.WebUser.deleteUser(user.id)) {
         <input type="submit" value="Delete">
         }
     </li>
@@ -20,7 +20,7 @@
 
 <h2>Add a new user</h2>
 
-@form(routes.Application.newUser()) {
+@form(routes.WebUser.newUser()) {
 
 @inputText(userForm("firstName"))
 
